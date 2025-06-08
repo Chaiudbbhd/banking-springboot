@@ -8,12 +8,38 @@ on:
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
+
+    services:
+      mysql:
+        image: mysql:8.0
+        env:
+          MYSQL_ROOT_PASSWORD: lpk2005
+          MYSQL_DATABASE: banking_central
+          MYSQL_USER: root
+          MYSQL_PASSWORD: lpk2005
+        ports:
+          - 3306:3306
+        options: >-
+          --health-cmd="mysqladmin ping --silent"
+          --health-interval=10s
+          --health-timeout=5s
+          --health-retries=5
 
     steps:
     - name: Checkout code
       uses: actions/checkout@v3
+
+    - name: Wait for MySQL to be ready
+      run: |
+        for i in {30..0}; do
+          if mysqladmin ping -h 127.0.0.1 -P 3306 --silent; then
+            echo "MySQL is up!"
+            break
+          fi
+          echo "Waiting for MySQL to start..."
+          sleep 1
+        done
 
     - name: Set up JDK 17
       uses: actions/setup-java@v3
