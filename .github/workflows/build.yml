@@ -17,24 +17,26 @@ jobs:
           MYSQL_ROOT_PASSWORD: lpk2005
           MYSQL_DATABASE: banking_central
         ports:
-          - 3307:3306  # map container's port 3306 to host's 3307
+          - 3306:3306
         options: >-
           --health-cmd="mysqladmin ping --silent"
           --health-interval=10s
           --health-timeout=5s
           --health-retries=5
 
+    env:
+      SPRING_DATASOURCE_URL: jdbc:mysql://localhost:3306/banking_central?useSSL=false&serverTimezone=UTC
+      SPRING_DATASOURCE_USERNAME: root
+      SPRING_DATASOURCE_PASSWORD: lpk2005
+
     steps:
     - name: Checkout code
       uses: actions/checkout@v3
 
-    - name: Set environment variable for DB URL
-      run: echo "SPRING_DATASOURCE_URL=jdbc:mysql://127.0.0.1:3307/banking_central?useSSL=false&serverTimezone=UTC" >> $GITHUB_ENV
-
     - name: Wait for MySQL to be ready
       run: |
         for i in {30..0}; do
-          if mysqladmin ping -h 127.0.0.1 -P 3307 --silent; then
+          if mysqladmin ping -h 127.0.0.1 -P 3306 --silent; then
             echo "MySQL is up!"
             break
           fi
