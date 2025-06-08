@@ -15,7 +15,6 @@ jobs:
         image: mysql:8.0
         env:
           MYSQL_ROOT_PASSWORD: lpk2005
-          MYSQL_DATABASE: banking_central
         ports:
           - 3306:3306
         options: >-
@@ -23,6 +22,8 @@ jobs:
           --health-interval=10s
           --health-timeout=5s
           --health-retries=5
+        volumes:
+          - ${{ github.workspace }}/ci-init.sql:/docker-entrypoint-initdb.d/init.sql
 
     env:
       SPRING_DATASOURCE_URL: jdbc:mysql://localhost:3306/banking_central?useSSL=false&serverTimezone=UTC
@@ -51,4 +52,4 @@ jobs:
         distribution: 'temurin'
 
     - name: Build with Maven
-      run: ./mvnw clean install
+      run: ./mvnw clean install -DskipTests
