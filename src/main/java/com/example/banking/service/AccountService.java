@@ -15,7 +15,7 @@ import org.springframework.stereotype.Service;
 public class AccountService {
 
     private final AccountRepository accountRepository;
-    private final TransactionService transactionService;  // Inject this service
+    private final TransactionService transactionService; 
 
     public AccountService(AccountRepository accountRepository,
                           TransactionService transactionService) {
@@ -24,10 +24,11 @@ public class AccountService {
     }
 
     public double getBalance(Long accountId) {
-        return accountRepository.findById(accountId)
-                .map(Account::getBalance)
-                .orElseThrow(() -> new RuntimeException("Account not found"));
-    }
+    Account account = accountRepository.findById(accountId)
+        .orElseThrow(() -> new RuntimeException("Account not found with ID: " + accountId));
+    return account.getBalance();
+}
+
 
     @Transactional
     public void deposit(Long accountId, double amount) {

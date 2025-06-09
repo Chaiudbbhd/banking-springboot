@@ -30,9 +30,11 @@ public class UserController {
     }
 
     @GetMapping("/balance/{accountId}")
-    public double getBalance(@PathVariable Long accountId) {
-        return accountService.getBalance(accountId);
-    }
+public ResponseEntity<Double> getBalance(@PathVariable Long accountId) {
+    double balance = accountService.getBalance(accountId);
+    return ResponseEntity.ok(balance);
+}
+
 
     @PostMapping("/deposit")
     public ResponseEntity<String> deposit(@RequestBody TransactionRequest request) {
