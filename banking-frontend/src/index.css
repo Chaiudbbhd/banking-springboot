@@ -1,0 +1,224 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@keyframes marquee {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+.animate-marquee {
+  display: inline-block;
+  animation: marquee 15s linear infinite;
+}
+
+.neon-text {
+  color: #d61111;
+  text-shadow: 0 0 6px #1d8a7f, 0 0 12px #00ffe5;
+  font-family: 'Segoe UI', sans-serif;
+}
+.auth-container {
+  display: flex;
+  min-height: 100vh;
+  font-family: "Segoe UI", sans-serif;
+}
+
+/* Left side - Image */
+.auth-image-section {
+  flex: 1;
+  background: #0b0c10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.auth-image-section img {
+  width: 95%;
+  border-radius: 30px 0 0 30px;
+  box-shadow: 0 0 25px rgba(0, 255, 200, 0.3);
+  transition: transform 0.3s ease-in-out;
+}
+
+.auth-image-section img:hover {
+  transform: scale(1.02);
+}
+
+/* Right side - Form */
+.auth-form-section {
+  flex: 1;
+  background: #2c2cf2;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px;
+  border-radius: 0 0 0 40px;
+}
+
+.auth-form {
+  width: 90%;
+  max-width: 400px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 20px;
+  padding: 30px;
+  backdrop-filter: blur(5px);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+}
+
+.auth-form h2 {
+  text-align: center;
+  margin-bottom: 25px;
+  font-weight: bold;
+  font-size: 26px;
+}
+
+.auth-form input {
+  padding: 14px;
+  margin: 12px 0;
+  border: none;
+  border-radius: 10px;
+  font-size: 16px;
+  outline: none;
+  transition: 0.3s;
+}
+
+.auth-form input:focus {
+  border: 2px solid #ffd700;
+  box-shadow: 0 0 8px #ffd700;
+}
+
+/* Checkbox and link row */
+.auth-options {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 13px;
+  margin-bottom: 18px;
+}
+
+.auth-options a {
+  color: #c5d1ff;
+  text-decoration: none;
+}
+
+.auth-options a:hover {
+  text-decoration: underline;
+}
+
+/* Button */
+.auth-button {
+  padding: 14px;
+  background: linear-gradient(135deg, #f09819, #ff512f);
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-size: 16px;
+  cursor: pointer;
+  margin-bottom: 20px;
+  transition: 0.3s;
+}
+
+.auth-button:hover {
+  background: linear-gradient(135deg, #ff9a00, #ff3c00);
+  box-shadow: 0 5px 15px rgba(255, 140, 0, 0.4);
+}
+
+/* Footer */
+.auth-footer {
+  text-align: center;
+  font-size: 14px;
+}
+
+.auth-footer a {
+  color: #ffd700;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.auth-footer a:hover {
+  text-decoration: underline;
+}
+
+.error {
+  color: #ff4d4f;
+  text-align: center;
+  margin-bottom: 10px;
+}
+.bank-section {
+  flex: 1;
+  padding: 40px;
+  background: #f5f5ff;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-direction: column;
+  font-family: "Segoe UI", sans-serif;
+  color: #0b0c10;
+}
+
+.bank-card {
+  background: rgba(255, 255, 255, 0.85);
+  border-radius: 20px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+  padding: 25px 30px;
+  margin-bottom: 25px;
+  width: 100%;
+  max-width: 500px;
+}
+
+.bank-card h3 {
+  margin-bottom: 12px;
+  font-size: 22px;
+  color: #2c2cf2;
+}
+
+.bank-card input {
+  padding: 12px;
+  margin-bottom: 14px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  width: 100%;
+  font-size: 15px;
+  outline: none;
+}
+
+.bank-card button {
+  padding: 12px;
+  background: linear-gradient(135deg, #f09819, #ff512f);
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.3s;
+  width: 100%;
+}
+
+.bank-card button:hover {
+  background: linear-gradient(135deg, #ff9a00, #ff3c00);
+  box-shadow: 0 5px 15px rgba(255, 140, 0, 0.4);
+}
+
+.bank-card p {
+  font-size: 14px;
+  margin-top: 10px;
+}
+
+.bank-error {
+  color: red;
+}
+
+.bank-success {
+  color: green;
+}
+
+.transaction-list li {
+  margin-bottom: 10px;
+  font-size: 14px;
+}
