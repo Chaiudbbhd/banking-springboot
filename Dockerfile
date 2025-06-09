@@ -1,9 +1,7 @@
-FROM jenkins/jenkins:lts
+FROM eclipse-temurin:17-jdk
 
-USER root
+COPY target/*.jar app.jar
 
-RUN apt-get update && \
-    apt-get install -y docker.io && \
-    apt-get clean
+EXPOSE 8080
 
-USER jenkins
+ENTRYPOINT ["java", "-jar", "/app.jar"]
