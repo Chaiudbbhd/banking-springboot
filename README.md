@@ -1,4 +1,50 @@
-
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Banking Spring Boot Application</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      line-height: 1.6;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f4f9;
+      color: #333;
+    }
+    header, section {
+      max-width: 900px;
+      margin: auto;
+      padding: 20px;
+    }
+    h1, h2, h3 {
+      text-align: center;
+    }
+    code, pre {
+      background: #eee;
+      padding: 5px;
+      border-radius: 5px;
+      display: block;
+      overflow-x: auto;
+    }
+    .badges img {
+      margin: 5px;
+    }
+    a {
+      color: #0077cc;
+    }
+    footer {
+      text-align: center;
+      margin: 40px 0;
+      font-size: 0.9em;
+      color: #666;
+    }
+  </style>
+</head>
+<body>
+  <header>
     <h1>💰 Banking Spring Boot Application 💰</h1>
     <h3>A Simple Banking Backend using Spring Boot, MySQL, and Java</h3>
     <div class="badges" align="center">
@@ -82,7 +128,7 @@ spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.MySQL5InnoDBDialec
     <p><strong>Ganteda Lakshmi Prasanna Kumar</strong></p>
     <ul>
       <li>Email: <a href="mailto:chaituchaitinya2005@gmail.com">chaituchaitinya2005@gmail.com</a></li>
-      <li>Portfolio: <a href="[https://lpk2005.netlify.app/](https://chaiudbbhd.github.io/portfolio-student/)">lpk2005.netlify.app</a></li>
+      <li>Portfolio: <a href="https://lpk2005.netlify.app/">lpk2005.netlify.app</a></li>
       <li>GitHub: <a href="https://github.com/Chaiudbbhd">github.com/Chaiudbbhd</a></li>
       <li>LinkedIn: <a href="https://www.linkedin.com/in/prasanna-kumar-g-3377a825a/">Prasanna Kumar G</a></li>
     </ul>
